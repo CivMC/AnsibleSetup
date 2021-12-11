@@ -2,7 +2,7 @@
 username: "mc"
 
 #Name of the server, folder the servers data is in will be /home/username/name
-servername: "civclassic"
+servername: "civmc"
 
 #Relative name of the folder the actual MC server is in
 server_folder: "server"
@@ -27,10 +27,10 @@ mc_port: "{{ internal_port }}"
 bungee_port: "{{ external_port }}"
 
 #How much memory is used by the server
-shard_mem: 48G
+shard_mem: 4G
 
 #How much memory is used by bungee
-bungee_mem: 3072M
+bungee_mem: 256M
 
 #Use PaperMC instead of Spigot?
 use_paper: true
@@ -43,49 +43,49 @@ mysql_socket_location: "/var/run/mysqld/mysqld.sock"
 
 #Plugins to deploy, including jar and config files. Plugins may be removed or commented out of this list without issue
 plugins:
- - AAC
- - AACPlus
- - BanStick
+ #- AAC
+ #- AACPlus
+ #- BanStick
  - Bastion
- - BetterChairs
- - Brewery
+ #- BetterChairs
+ #- Brewery
  - BungeeGuard
  - Citadel
  - CivChat2
- - CivDuties
+ #- CivDuties
  - CivModCore
- - ClearLag
+ #- ClearLag
  - CombatTagPlus
  - ConditionalCommands
  - CraftEnhance
- - Donum
- - EntityDetection
+ #- Donum
+ #- EntityDetection
  - EssenceGlue
  - ExilePearl
  - FactoryMod
  - Finale
  - HiddenOre
  - HolographicDisplays
- - ItemExchange
+ #- ItemExchange
  - JukeAlert
- - KiraBukkitGateway
- - LuckPerms
+ #- KiraBukkitGateway
+ #- LuckPerms
  - NameColors
  - NameLayer
- - Orebfuscator
+ #- Orebfuscator
  - ProtocolLib
- - RailSwitch
- - RandomSpawn
+ #- RailSwitch
+ #- RandomSpawn
  - RealisticBiomes
  - SimpleAdminHacks
  - Spark
- - SuperVanish
+ #- SuperVanish
  - Vault
  - ViaBackwards
  - ViaVersion
- - Votifier #This is actually NuVotifier
- - WDLCompanion
- - WorldBorder
+ #- Votifier #This is actually NuVotifier
+ #- WDLCompanion
+ #- WorldBorder
  - WorldEdit
  - TAB
 
