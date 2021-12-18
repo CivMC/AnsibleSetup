@@ -130,15 +130,15 @@ bungee_top_level_templates:
 bungee_secret_top_level_templates:
 
 #Minecraft version
-mc_version: "1.16.5"
+mc_version: "1.18.1"
 #Version of PaperMC to use
-paper_version: "791"
+paper_version: "81"
 #Version of Tuinity to use
 tuinity_version: "241"
 #Raw Bungee version, used in the URL of Waterfall downloads
-raw_bungee_version: 1.17
+raw_bungee_version: 1.18
 #Specific waterfall version to use
-waterfall_version: "415"
+waterfall_version: "472"
 #URL to pull BuildTools from for building Spigot
 spigot_url: "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
 #URL to pull Paper build from
