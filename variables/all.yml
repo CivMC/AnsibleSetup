@@ -132,13 +132,16 @@ bungee_secret_top_level_templates:
 #Minecraft version
 mc_version: "1.18.1"
 #Version of PaperMC to use
-paper_version: "81"
+paper_version: "117"
 #Version of Tuinity to use
 tuinity_version: "241"
 #Raw Bungee version, used in the URL of Waterfall downloads
 raw_bungee_version: 1.18
 #Specific waterfall version to use
-waterfall_version: "472"
+waterfall_version: "474"
+#Velocity version(s) to use
+velocity_version: "3.1.2-SNAPSHOT"
+velocity_build: "110"
 #URL to pull BuildTools from for building Spigot
 spigot_url: "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar"
 #URL to pull Paper build from
@@ -147,6 +150,8 @@ paper_url: "https://papermc.io/api/v2/projects/paper/versions/{{ mc_version }}/b
 tuinity_url: "https://ci.codemc.io/job/Spottedleaf/job/Tuinity/{{ tuinity_version }}/artifact/tuinity-paperclip.jar"
 #URL to pull bungeecord/waterfall build from
 bungee_url: "https://papermc.io/api/v2/projects/waterfall/versions/{{ raw_bungee_version }}/builds/{{ waterfall_version }}/downloads/waterfall-{{ raw_bungee_version }}-{{ waterfall_version }}.jar"
+#URL to pull velocity build from
+velocity_url: "https://papermc.io/api/v2/projects/velocity/versions/{{ velocity_version }}/builds/{{ velocity_build }}/downloads/velocity-{{ velocity_version }}-{{ velocity_build }}.jar"
 #Name of the final server jar put into the server folder
 server_jar: "minecraft"
 #Name of the bungee jar to put into the bungee folder
