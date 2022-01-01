@@ -10,6 +10,8 @@ server_folder: "server"
 #Relative name of the folder bungee lives in
 bungee_folder: "bungee"
 
+velocity_folder: "velocity"
+
 #Relative name of the folder backups will be in
 backups_folder: "backups"
 
@@ -22,15 +24,20 @@ internal_port: 25570
 #Do we want to use bungee/waterfall
 use_bungee: true
 
+#Use velocity instead of bungee?
+use_velocity: true
+
 #Port to use for MC server
 mc_port: "{{ internal_port }}"
 bungee_port: "{{ external_port }}"
+velocity_port: "{{ velocity_port }}"
 
 #How much memory is used by the server
 shard_mem: 4G
 
 #How much memory is used by bungee
 bungee_mem: 256M
+velocity_mem: 256M
 
 #Use PaperMC instead of Spigot?
 use_paper: true
@@ -129,6 +136,12 @@ bungee_top_level_templates:
 #Nonpublic bungee files not specific to a plugin, templates for these are under templates/private/
 bungee_secret_top_level_templates:
 
+
+velocity_top_level_templates:
+ - velocity.toml
+
+
+
 #Minecraft version
 mc_version: "1.18.1"
 #Version of PaperMC to use
@@ -156,14 +169,19 @@ velocity_url: "https://papermc.io/api/v2/projects/velocity/versions/{{ velocity_
 server_jar: "minecraft"
 #Name of the bungee jar to put into the bungee folder
 bungee_jar: "Waterfall"
+#Name of the velocity jar to put in the velocity folder
+velocity_jar: "velocity"
 #Minecraft startup bash script file name
 startup_script: "start.sh"
 #Bungee startup bash script file name
 bungee_startup_script: "bungee_start.sh"
+velocity_startup_script: "velocity_start.sh"
 #Name of the minecraft server console tab in byobu
 byobu_minecraft_tab: "server"
 #Name of the bungee console tab in byobu
 byobu_bungee_tab: "bungee"
+#Velocity console tab
+byobu_velocity_tab: "velocity"
 sql_file: "{{ main_folder }}/{{ backups_folder }}/{{ servername }}.sql"
 duplicity_folder: "remote_backups"
 do_remote_backup: true
@@ -180,4 +198,4 @@ remote_backup_retention_count: 14
 #Folder most of the magic is happening in as a variable for convenience
 main_folder: "/home/{{ username }}/{{ servername }}"
 full_server_folder: "/home/{{ username }}/{{ servername }}/{{ server_folder }}"
-full_bungee_folder: "/home/{{ username }}/{{ servername }}/{{ bungee_folder }}"
+full_velocity_folder: "/home/{{ username }}/{{ servername }}/{{ velocity_folder }}"

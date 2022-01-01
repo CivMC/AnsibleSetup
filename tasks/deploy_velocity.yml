@@ -1,0 +1,40 @@
+---
+#task to deploy Velocity including plugins and their configs
+
+- name: "Create Velocity Directory"
+  file: "path={{ full_velocity_folder }} state=directory owner={{ username }} mode=0755"
+
+- name: "Create Velocity Plugins Directory"
+  file: "path={{ full_velocity_folder }}/plugins state=directory owner={{ username }} mode=0755"
+
+- name: "Copy Velocity top level public templates"
+  template: "src={{ templates }}/public/{{ item }}.j2 dest={{ full_velocity_folder }}/{{ item }} \
+             owner={{ username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ velocity_top_level_templates }}"
+
+- name: Make startup script executable
+  file: dest={{ full_velocity_folder }}/{{ velocity_startup_script }} mode=u+x
+
+- name: "Copy Velocity top level private templates"
+  template: "src={{ templates }}private/{{ item }}.j2 dest={{ full_velocity_folder }}/{{ item }} \
+             owner={{ username }} mode='u=rw,g=r,o=r'"
+  with_items: "{{ velocity_secret_top_level_templates }}"
+  when: groups["velocity_secret_top_level_templates"] is defined
+
+- name: Download Velocity
+  get_url:
+    url: "{{ velocity_url }}"
+    dest: "{{ full_velocity_folder }}/{{ velocity_jar }}.jar"
+    mode: 0755
+    owner: "{{ username }}"
+    force: true
+
+- name: "Clean existing Velocity plugin jarfiles"
+  shell: "rm {{ full_velocity_folder }}/plugins/*.jar"
+  ignore_errors: true
+
+- name: "Deploy Velocity plugins"
+  include: "tasks/deploy-plugin.yml plugin_name={{ velocity_plugin_name }} abs_plugin_dir={{ full_velocity_folder }}/plugins rel_jar_path=velocity_plugins rel_config_path=velocity_plugins"
+  with_items: "{{ velocity_plugins }}"
+  loop_control:
+    loop_var: velocity_plugin_name
