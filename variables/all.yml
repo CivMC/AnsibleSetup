@@ -22,7 +22,7 @@ external_port: 25565
 internal_port: 25570
 
 #Do we want to use bungee/waterfall
-use_bungee: true
+use_bungee: false
 
 #Use velocity instead of bungee?
 use_velocity: true
@@ -30,7 +30,7 @@ use_velocity: true
 #Port to use for MC server
 mc_port: "{{ internal_port }}"
 bungee_port: "{{ external_port }}"
-velocity_port: "{{ velocity_port }}"
+velocity_port: "{{ external_port }}"
 
 #How much memory is used by the server
 shard_mem: 4G
@@ -97,9 +97,10 @@ plugins:
  - TAB
 
 #Plugins to deploy, including jar and config files. Plugins may be removed or commented out of this list without issue
-bungee_plugins:
+velocity_plugins:
  - BungeeGuard
  - Spark
+
 
 #--------------------------------------
 #Unless you know what you are doing you probably don't want to touch anything below this line
@@ -140,12 +141,13 @@ bungee_secret_top_level_templates:
 velocity_top_level_templates:
  - velocity.toml
 
+velocity_secret_top_level_templates:
 
 
 #Minecraft version
 mc_version: "1.18.1"
 #Version of PaperMC to use
-paper_version: "117"
+paper_version: "119"
 #Version of Tuinity to use
 tuinity_version: "241"
 #Raw Bungee version, used in the URL of Waterfall downloads

@@ -63,7 +63,7 @@
 
    - name: Start Velocity
      include: "tasks/start-velocity.yml"
-     when: "{{ do_startvelocity | default('false') }}"  
+     when: "{{ do_startvelocity | default('false') }} and {{ use_velocity }}"  
 
    - name: Extract partial backup
      include: "tasks/extract-region.yml"
