@@ -140,6 +140,7 @@ bungee_secret_top_level_templates:
 
 velocity_top_level_templates:
  - velocity.toml
+ - velocity_start.sh
 
 velocity_secret_top_level_templates:
 
@@ -147,7 +148,7 @@ velocity_secret_top_level_templates:
 #Minecraft version
 mc_version: "1.18.1"
 #Version of PaperMC to use
-paper_version: "119"
+paper_version: "160"
 #Version of Tuinity to use
 tuinity_version: "241"
 #Raw Bungee version, used in the URL of Waterfall downloads

@@ -13,7 +13,7 @@
   with_items: "{{ velocity_top_level_templates }}"
 
 - name: Make startup script executable
-  file: dest={{ full_velocity_folder }}/{{ velocity_startup_script }} mode=u+x
+  file: "dest={{ full_velocity_folder }}/{{ velocity_startup_script }} mode=u+x"
 
 - name: "Copy Velocity top level private templates"
   template: "src={{ templates }}private/{{ item }}.j2 dest={{ full_velocity_folder }}/{{ item }} \
