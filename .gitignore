@@ -2,3 +2,4 @@
 variables/passwords.yml
 templates/private/*
 jarfiles/private/*
+/.idea/

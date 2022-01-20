@@ -1,0 +1,11 @@
+---
+#task to restart shards
+
+- name: Wait for Shard to stop
+  wait_for: "port={{ velocity_port }} state=absent timeout=3600"
+
+- name: Send Start command
+  shell: "tmux send -t {{ byobu_velocity_tab }} ENTER 'cd {{ full_velocity_folder }}' ENTER 'bash {{ velocity_startup_script }}' ENTER" 
+
+- name: Wait for Shard to start
+  wait_for: "port={{ velocity_port }} state=present"

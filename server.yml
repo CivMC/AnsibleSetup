@@ -37,6 +37,10 @@
      include: "tasks/stop-minecraft.yml"
      when: "{{ do_stopminecraft | default('false') }}"
 
+   - name: Stop Velocity
+     include: "tasks/stop-velocity.yml"
+     when: "{{ do_stopvelocity | default('false') }}"
+
    - name: Backup server
      include: "tasks/backup-server.yml"
      when: "{{ do_backup | default('false') }}"
@@ -56,6 +60,10 @@
    - name: Start Minecraft Server
      include: "tasks/start-minecraft.yml"
      when: "{{ do_startminecraft | default('false') }}"
+
+   - name: Start Velocity
+     include: "tasks/start-velocity.yml"
+     when: "{{ do_startvelocity | default('false') }} and {{ use_velocity }}"  
 
    - name: Extract partial backup
      include: "tasks/extract-region.yml"

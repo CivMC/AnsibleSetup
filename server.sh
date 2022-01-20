@@ -12,10 +12,12 @@ function showCivAnsibleHelp() {
 	echo "backup           # Creates full backup of the map, plugin configs and mysql database in the deployed setup"
 	echo "stopminecraft    # Stops the minecraft server"
 	echo "stopbungee       # Stops BungeeCord"
+	echo "stopvelocity     # Stops Velocity"
 	echo "stop             # Stops the minecraft server and then BungeeCord"
 	echo "startminecraft   # Starts the minecraft server"
 	echo "startbungee      # Starts BungeeCord"
-	echo "start            # Starts BungeeCord and then the minecraft server"
+	echo "startvelocity    # Starts Velocity"
+	echo "start            # Starts BungeeCord/Velocity and then the minecraft server"
 	echo "duplicity        # Culls backups and syncs them with a remote FTP location"
 	echo "help             # Shows this list of commands"
 }
@@ -73,9 +75,13 @@ do
 			echo "Stopping Bungee"
 			ansible-playbook server.yml --extra-vars '{"do_stopbungee":"true"}'
 			;;
+		stopvelocity)
+			echo "Stopping Velocity"
+			ansible-playbook server.yml --extra-vars '{"do_stopvelocity":"true"}'
+			;;
 		stop)
 			echo "Stopping Bungee and Minecraft"
-			ansible-playbook server.yml --extra-vars '{"do_stopbungee":"true", "do_stopminecraft":"true"}'
+			ansible-playbook server.yml --extra-vars '{"do_stopvelocity":"true", "do_stopminecraft":"true"}'
 			;;
 		startminecraft)
 			echo "Starting Minecraft"
@@ -85,9 +91,13 @@ do
 			echo "Starting Bungee"
 			ansible-playbook server.yml --extra-vars '{"do_startbungee":"true"}'
 			;;
+		startvelocity)
+			echo "Starting Velocity"
+			ansible-playbook server.yml --extra-vars '{"do_startvelocity":"true"}'
+			;;
 		start)
 			echo "Starting Bungee and Minecraft"
-			ansible-playbook server.yml --extra-vars '{"do_startbungee":"true", "do_startminecraft":"true"}'
+			ansible-playbook server.yml --extra-vars '{"do_startvelocity":"true", "do_startminecraft":"true"}'
 			;;
 		duplicity)
 			echo "Applying culling and duplicity to backups"

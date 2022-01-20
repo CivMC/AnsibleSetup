@@ -46,3 +46,7 @@
 - name: "Deploy Bungee"
   include: "tasks/deploy-bungee.yml"
   when: use_bungee
+
+- name: "Deploy Velocity"
+  include: "tasks/deploy-velocity.yml"
+  when: use_velocity
